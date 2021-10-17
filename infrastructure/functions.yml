@@ -19,11 +19,6 @@ disconnect:
 
 StartSendMessageNotification:
   handler: startSendMessageNotification/function.handler
-  events:
-    - sns:
-        arn: arn:aws:sns:us-east-1:101010101010:TransactionsProcessedTopic
-    - sns:
-        arn: arn:aws:sns:us-east-1:101010101010:AccountBalanceAddedTopic
 
 GetConnection:
   handler: getConnection/function.handler
