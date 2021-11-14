@@ -16,7 +16,8 @@
     "@aws-sdk/client-cognito-identity-provider": "^3.37.0",
     "@aws-sdk/client-dynamodb": "^3.37.0",
     "@aws-sdk/util-dynamodb": "^3.37.0",
-    "@cloud-platform/aws-commands": "^0.0.1",
+    "@cloud-platform/commands": "0.0.1",
+    "@cloud-platform/aws-commands": "0.0.1",
     "inversify-props": "^2.2.6",
     "source-map-support": "^0.5.20"
   },
