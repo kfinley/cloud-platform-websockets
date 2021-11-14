@@ -11,6 +11,12 @@ connect:
           name: ${self:service}-auth #TODO: fix loadFunctions.js to handle this...
   handler: connect/function.handler
 
+default:
+  events:
+    - websocket:
+        route: $default
+  handler: default/function.handler
+
 disconnect:
   events:
     - websocket:
@@ -25,12 +31,6 @@ GetConnection:
 
 SendMessage:
   handler: sendMessage/function.handler
-
-# default:
-#   events:
-#     - websocket:
-#         route: $default
-#   handler: default/function.handler
 
 # broadcast:
 #   events:

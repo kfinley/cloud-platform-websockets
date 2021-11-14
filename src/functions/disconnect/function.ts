@@ -4,9 +4,6 @@ import { container } from 'inversify-props';
 import bootstrapper from '../../bootstrapper';
 import { createResponse } from '../../createResponse';
 
-// TODO: move to config
-const CONNECTION_DB_TABLE = process.env.WEBSOCKETS_CONNECTION_DB_TABLE as string;
-
 bootstrapper();
 
 export const handler: APIGatewayProxyHandler = async (event) => {
@@ -24,6 +21,6 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
   } catch (error) {
     console.log(error);
-    return createResponse(event, 500, error);
+    return createResponse(event, 500, error as string);
   }
 };

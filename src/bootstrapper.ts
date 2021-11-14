@@ -4,6 +4,8 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { ApiGatewayManagementApiClient } from '@aws-sdk/client-apigatewaymanagementapi';
 import { bootstrapper as awsCommandsBootstrapper } from '@cloud-platform/aws-commands/src';
 import { AuthorizeConnectionCommand, DeleteConnectionByUserIdCommand, DeleteConnectionCommand, GetConnectionByUserIdCommand, SaveConnectionCommand, SendMessageCommand } from './commands';
+import { IMessageCommand } from './commands/messageCommand';
+import { PingMessageCommand, PingMessageRequest, PingMessageResponse } from './commands/pingMessage';
 
 export default function bootstrapper() {
 
@@ -29,6 +31,8 @@ export default function bootstrapper() {
   addTransientIfNeeded<GetConnectionByUserIdCommand>(GetConnectionByUserIdCommand, "GetConnectionByUserIdCommand", container);
   addTransientIfNeeded<SendMessageCommand>(SendMessageCommand, "SendMessageCommand", container);
   addTransientIfNeeded<SaveConnectionCommand>(SaveConnectionCommand, "SaveConnectionCommand", container);
+
+  addTransientIfNeeded<IMessageCommand>(PingMessageCommand, "PingMessageCommand", container);
 }
 
 function addTransientIfNeeded<T>(constructor: any, id: string, container: Container) {

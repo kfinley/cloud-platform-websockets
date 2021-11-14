@@ -16,6 +16,9 @@ export class DeleteConnectionCommand implements Command<DeleteConnectionRequest,
     let { userId, connectionId } = params;
 
     if (!userId || !connectionId) {
+
+      console.log('Looking up userId');
+
       const response = await this.ddbClient.send(new ScanCommand({
         TableName: CONNECTION_TABLE,
         ExpressionAttributeValues: {
@@ -39,6 +42,8 @@ export class DeleteConnectionCommand implements Command<DeleteConnectionRequest,
       }
     }
 
+    console.log('Deleting user connection');
+    
     var response = await this.ddbClient.send(new DeleteItemCommand({
       TableName: CONNECTION_TABLE,
       Key: {
